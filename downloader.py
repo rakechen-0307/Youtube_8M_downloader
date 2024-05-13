@@ -121,7 +121,7 @@ def main():
     download = Download()
     dcount = 1 
     for label in labels_list:
-        download.download(label[0:-1])
+        download.download(label)
         dcount = dcount + 1
         print("Download "+ str(dcount) + " of "+ str(len(labels_list)))
 if __name__ == "__main__":
