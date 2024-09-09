@@ -1,10 +1,4 @@
 import os
-import sys
-import requests
-import json
-import progressbar
-from pytube import YouTube
-from pytube.exceptions import VideoUnavailable
 
 ## latin, funk, rock, EDM, pop, R&B, country, hip-hop
 ytids = ["kJQP7kiw5Fk", "6Mgqbai3fKo", 
@@ -19,7 +13,6 @@ video_dir = "./class_video"
 
 os.mkdir(video_dir)
 for i in range(len(ytids)):
-    try: 
-        YouTube('http://youtube.com/watch?v='+ ytids[i]).streams.first().download(video_dir)
-    except VideoUnavailable:
-        print('http://youtube.com/watch?v='+ ytids[i])
+    os.system("yt-dlp --extract-audio --audio-format mp3 {}".format(
+        "https://www.youtube.com/watch?v=" + ytids[i]   
+    ))
